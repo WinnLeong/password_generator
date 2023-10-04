@@ -1,70 +1,71 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  length = 0;
-  includeLetters = false;
-  includeUppercase = false;
-  includeNumbers = false;
-  includeSymbols = false;
-  password = '';
+  length = 0
+  includeLetters = false
+  includeUppercase = false
+  includeNumbers = false
+  includeSymbols = false
+  password = ''
 
   onChangeLength(eventTarget: EventTarget): void {
-    const value: string = (<HTMLInputElement>eventTarget).value;
-    const parsedValue = parseInt(value);
+    const value: string = (<HTMLInputElement>eventTarget).value
+    const parsedValue = parseInt(value)
 
     if (!isNaN(parsedValue)) {
-      this.length = parsedValue;
+      this.length = parsedValue
     }
   }
 
   onChangeUseLetters() {
-    this.includeLetters = !this.includeLetters;
+    this.includeLetters = !this.includeLetters
   }
 
   onChangeUseUppercase() {
-    this.includeUppercase = !this.includeUppercase;
+    this.includeUppercase = !this.includeUppercase
   }
 
   onChangeUseNumbers() {
-    this.includeNumbers = !this.includeNumbers;
+    this.includeNumbers = !this.includeNumbers
   }
 
   onChangeUseSymbols() {
-    this.includeSymbols = !this.includeSymbols;
+    this.includeSymbols = !this.includeSymbols
   }
 
   // onClick event
   onButtonClick() {
-    const numbers = '1234567890';
-    const letters = 'abcdefghijklmnopqrstuvwxyz';
-    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const symbols = '!@#$%^&*()';
+    const numbers = '1234567890'
+    const letters = 'abcdefghijklmnopqrstuvwxyz'
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const symbols = '!@#$%^&*(){},.[]'
 
-    let validChars = '';
+    let validChars = ''
 
     if (this.includeLetters) {
-      validChars += letters;
+      validChars += letters
     }
     if (this.includeUppercase) {
-      validChars += uppercase;
+      validChars += uppercase
     }
     if (this.includeNumbers) {
-      validChars += numbers;
+      validChars += numbers
     }
     if (this.includeSymbols) {
-      validChars += symbols;
+      validChars += symbols
     }
 
-    let generatedPassword = '';
+    let generatedPassword = ''
     for (let i = 0; i < this.length; i += 1) {
-      const index = Math.floor(Math.random() * validChars.length);
-      generatedPassword += validChars[index];
+      const index = Math.floor(Math.random() * validChars.length)
+      generatedPassword += validChars[index]
     }
-    this.password = generatedPassword;
+    this.password = generatedPassword
   }
 }
+
