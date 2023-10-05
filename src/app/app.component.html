@@ -5,7 +5,11 @@
 
       <div class="field">
         <label>Length</label>
-        <input class="input" (input)="onChangeLength($event.target!)" />
+        <input
+          class="input"
+          #userInput
+          (input)="onChangeLength(userInput.value)"
+        />
       </div>
 
       <div class="field">

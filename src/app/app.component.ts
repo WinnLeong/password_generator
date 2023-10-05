@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   length = 0
@@ -13,8 +13,7 @@ export class AppComponent {
   includeSymbols = false
   password = ''
 
-  onChangeLength(eventTarget: EventTarget): void {
-    const value: string = (<HTMLInputElement>eventTarget).value
+  onChangeLength(value: string) {
     const parsedValue = parseInt(value)
 
     if (!isNaN(parsedValue)) {
@@ -68,4 +67,3 @@ export class AppComponent {
     this.password = generatedPassword
   }
 }
-
